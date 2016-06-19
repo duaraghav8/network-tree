@@ -13,8 +13,8 @@ app
 	.get ('/tree/:format', function (req, res) {
 		tree = new networkTree (domain);
 		tree
-			.get ({
-				formats: ['d3', 'sigma']	//produce the sitemap json for both d3.js tree and sigma.js tree
+			.getSitemap ({
+				for: ['d3', 'sigma']	//produce the sitemap json for both d3.js tree and sigma.js tree
 			})
 
 			.then (function (jsons) {
