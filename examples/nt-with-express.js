@@ -7,7 +7,7 @@
 var networkTree = require ('..'),
 	app = require ('express') ();
 
-var tree, domain = 'http://raghavdua.com/';
+var tree, domain = 'raghavdua.com';
 
 app
 	.get ('/tree/:format', function (req, res) {
