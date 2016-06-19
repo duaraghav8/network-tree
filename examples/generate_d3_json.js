@@ -7,13 +7,10 @@
 var networkTree = require ('network-tree'),
 	app = require ('express') ();
 
-var tree, treeCache,
-	domain = 'http://raghavdua.com/';
+var tree, domain = 'http://raghavdua.com/';
 
 app
 	.get ('/tree/:format', function (req, res) {
-		if (treeCache) return res.json (treeCache);
-
 		tree = new networkTree (domain);
 		tree
 			.get ({
@@ -22,7 +19,6 @@ app
 
 			.then (function (jsons) {
 				var requestedFormat = req.params.format;
-				treeCache = jsons;
 
 				if (Object.keys (jsons).indexOf (requestedFormat) === -1) return res.sendStatus (404);
 				res.json (jsons [requestedFormat]);
