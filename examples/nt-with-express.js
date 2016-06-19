@@ -33,7 +33,7 @@ app
 	.listen (3000);
 
 /**
- *	Output = {
+ *	tree = {
  *		"d3": {
  			<SITEMAP JSON in d3.js format>
  		},
