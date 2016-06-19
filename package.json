@@ -1,0 +1,31 @@
+{
+  "name": "network-tree",
+  "version": "1.0.0",
+  "description": "Generate a Network's sitemap in json formats compliant with various graph visualization libraries",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duaraghav8/network-tree.git"
+  },
+  "author": "Raghav Dua",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duaraghav8/network-tree/issues"
+  },
+  "homepage": "https://github.com/duaraghav8/network-tree#readme",
+  "dependencies": {
+    "es6-promise": "^3.2.1",
+    "sitemap-generator": "^4.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "should": "^9.0.2",
+    "supertest": "^1.2.0"
+  }
+}

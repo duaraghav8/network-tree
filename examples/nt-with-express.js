@@ -4,7 +4,7 @@
  *	An example of network-tree's API
  */
 
-var networkTree = require ('network-tree'),
+var networkTree = require ('..'),
 	app = require ('express') ();
 
 var tree, domain = 'http://raghavdua.com/';
@@ -21,11 +21,11 @@ app
 				var requestedFormat = req.params.format;
 
 				if (Object.keys (jsons).indexOf (requestedFormat) === -1) return res.sendStatus (404);
-				res.json (jsons [requestedFormat]);
+				res.header ('Content-Type', 'text/plain');
+				res.end (JSON.stringify (jsons [requestedFormat], null, 2));
 			})
 
 			.catch (function (err) {
-				console.log (err);
 				res.sendStatus (500);
 			});
 	})
