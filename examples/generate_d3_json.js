@@ -20,9 +20,11 @@ app
 			})
 			.then (function (json) {
 				treeCache = json;
+				res.json (json);
 			})
 			.catch (function (err) {
 				console.log (err);
+				res.sendStatus (500);
 			});
 	})
 
