@@ -3,6 +3,48 @@ Retrieve Sitemaps in JSON format(s) compliant with your favourite Graph Visualiz
 #Usage
 ```network-tree``` abstracts away the complexity of organizing a sitemap into a json suitable for the visualization library you use. This allows you to focus on making pretty visualizations rather than worrying about structuring the data.
 
+For example, here's a typical JSON that you have to pass to a D3 Tree Visualization:
+```javascript
+{
+	"name": "Mike and Marcia",
+	"children": [
+		{
+			"name": "Children",
+			"children": [
+				{ "name": "Mikael" }
+			]
+		},
+		{
+			"name": "Pets",
+			"children": [
+				{
+					"name": "Dogs",
+					"children": [
+						{ "name": "Bleu" },
+						{ "name": "Tagg" }
+					]
+				},
+				{
+					"name": "Cats",
+					"children": [
+						{ "name": "Bob" },
+						{ "name": "Peanut" }
+					]
+				}
+			]
+		}
+	]
+}
+```
+
+If you want to create a visualization of a website's hierarchy, you will:
+	1. Retrieve the sitemap XML
+	2. Write a converter to convert the XML into JSON to be used for D3
+	3. Inject the JSON to create art!
+Now imagine you decide to port to sigma.js =(
+
+To ease your day, network-tree handles Steps 1 & 2 for all the visualization libraries. Just plug in the domain name and your library, and get the appropriate JSON. Its THAT simple!
+
 #Install
 ```bash
 npm install network-tree
