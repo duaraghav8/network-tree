@@ -38,12 +38,14 @@ For example, here's a typical JSON that you have to pass to a D3 Tree Visualizat
 ```
 
 If you want to create a visualization of a website's hierarchy, you will:
-	1. Retrieve the sitemap XML
-	2. Write a converter to convert the XML into JSON to be used for D3
-	3. Inject the JSON to create art!
+
+			1. Retrieve the sitemap XML
+			2. Write a converter to convert the XML into JSON to be used for D3
+			3. Inject the JSON to create art!
+			
 Now imagine you decide to port to sigma.js =(
 
-To ease your day, network-tree handles Steps 1 & 2 for all the visualization libraries. Just plug in the domain name and your library, and get the appropriate JSON. Its THAT simple!
+To ease your day, network-tree handles Steps 1 & 2 for all the visualization libraries. Just plug in the domain name and your library, and get the appropriate JSON. Its THAT simple! :)
 
 #Install
 ```bash
