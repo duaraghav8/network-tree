@@ -13,9 +13,7 @@ npm install network-tree
 var networkTree = require ('network-tree');
 ```
 
-The ```network-tree``` allows you to specify a website (with configuration options) to retrieve its sitemap in a JSON format that you can directly inject into your favourite Visualization library.
-
-You use the ```new networkTree ()``` method and supply the domain name for initial setup. For retrieving the sitemap, use the object's ```getSitemap ()``` method and pass an options object to specify which library you want the json for.
+Use the ```new networkTree ()``` method and supply the domain name for initial setup. For retrieving the sitemap, use the object's ```getSitemap ()``` method and pass an options object to specify which libraries you want the json for.
 
 ##Options
 ###Setup
@@ -38,25 +36,24 @@ If unspecified, ```for``` defaults to []. So no json will be returned
 
 ###Express
 ```javascript
-var networkTree = require ('..'),
+var networkTree = require ('network-tree'),
 	app = require ('express') ();
 
 var tree, domain = 'http://raghavdua.com/';
 
 app
 	.get ('/tree/:format', function (req, res) {
+		if (req.params.format && req.params.format !== 'd3') return res.sendStatus (400);	//BAD REQUEST
+
 		tree = new networkTree (domain);
 		tree
 			.getSitemap ({
-				for: ['d3', 'sigma']	//produce the sitemap json for both d3.js tree and sigma.js tree
+				for: ['d3']
 			})
 
 			.then (function (jsons) {
-				var requestedFormat = req.params.format;
-
-				if (Object.keys (jsons).indexOf (requestedFormat) === -1) return res.sendStatus (404);
 				res.header ('Content-Type', 'text/plain');
-				res.end (JSON.stringify (jsons [requestedFormat], null, 2));
+				res.end (JSON.stringify (jsons ['d3'], null, 2));
 			})
 
 			.catch (function (err) {
