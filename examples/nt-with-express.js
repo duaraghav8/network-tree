@@ -4,7 +4,7 @@
  *	An example of network-tree's API
  */
 
-var networkTree = require ('..'),
+var networkTree = require ('network-tree'),
 	app = require ('express') ();
 
 var tree, domain = 'http://raghavdua.com/';
@@ -14,7 +14,7 @@ app
 		tree = new networkTree (domain);
 		tree
 			.getSitemap ({
-				for: ['d3', 'sigma']	//produce the sitemap json for both d3.js tree and sigma.js tree
+				for: ['d3']	//produce the sitemap json for d3.js
 			})
 
 			.then (function (jsons) {
@@ -35,10 +35,7 @@ app
 /**
  *	tree = {
  *		"d3": {
- 			<SITEMAP JSON in d3.js format>
- 		},
- *		"sigma": {
- 			<SITEMAP JSON in sigma.js format>
- 		}
+ *			<SITEMAP JSON in d3.js format>
+ *		},
  *	}
  */
