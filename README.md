@@ -1,7 +1,7 @@
 Retrieve Sitemaps in JSON format(s) compliant with your favourite Graph Visualization Library
 
-#Motivation
-```network-tree``` abstracts away the complexity of organizing a sitemap into a json suitable for the visualization library you use. This allows you to focus on making pretty visualizations rather than worrying about cleaning the data.
+#Usage
+```network-tree``` abstracts away the complexity of organizing a sitemap into a json suitable for the visualization library you use. This allows you to focus on making pretty visualizations rather than worrying about structuring the data.
 
 #Install
 ```bash
